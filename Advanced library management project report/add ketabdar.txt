@@ -1,0 +1,147 @@
+void addketabdar(){
+
+	char q;
+	do
+	{
+
+		system("cls");
+		ifstream addketabdar("ketabdar.txt");
+		ofstream editfinal("ketabdarfinal.txt");
+		if (!addketabdar)
+		{
+			cout << "the file could not be opened!" << endl;
+			abort();
+		}
+		ketabdarinf a;
+		ketabdarinf b;
+		bool found = false;
+
+		cout << "\n\n\t\t please enter new ketabdar id : ";
+		cin >> a.id;
+		while (addketabdar >> b.id)
+		{
+
+			addketabdar >> b.name;
+			addoketabdar >> b.family;
+			addoketabdar >> b.melliid;
+			addoketabdar >> b.day;
+                        addoketabdar >> b.month;
+                        addoketabdar >> b.year;
+                        addoketabdar >> b.madrak;
+                        addoketabdar >> b.semat;
+
+			if (a.id == b.id){
+				found = true;
+				
+
+				cout << "\n\t\t This ketabdar is available ! \n\n";
+
+				cout << "\n\t\t\t " << "name    : " << b.name;
+				cout << "\n\t\t\t " << "family : " << b.family;
+				cout << "\n\t\t\t " << "melliid  : " << b.melliid;
+				cout << "\n\t\t\t " << "day : " << b.day;
+				cout << "\n\t\t\t " << "month: " << b.month;
+				cout << "\n\t\t\t " << "year: " << b.year;
+				cout << "\n\t\t\t " << "madrak: " << b.madrak;
+				cout << "\n\t\t\t " << "semat: " << b.semat;
+				cout << "\n\n\t\tdo you want to add new ketabdar ? (y/n)\n\t\t";
+				char chp;
+				cin >> chp;
+				if (chp == 'y'){
+
+					ketabdar ketabdar(a.id, b.name, b.family, b.melliid, b.day, b.month,b.year, b.madrak, b.semat);
+					ketabdarvector.push_back(ketabdar);
+					
+					editfinal << ketabdar.getid() << " " << ketabdar.getname() << " " << ketabdar.getfamily) << " " << ketabdar.getmelliid() << " " <<
+						ketabdar.getday() << " " << ketabdar.getmonth() << " " << ketabdar.getyear() << " " << ketabdar.getmadrak() << " " << ketabdar.getsemat() << " " <<endl;
+
+					cout << "\n\t\t\t\t*********************************************************************\n";
+					cout << "\t\t\t\t*                ok your ketabdar is added                                *\n";
+					cout << "\t\t\t\t***********************************************************************\n";
+
+				}
+				else if (chp == 'n'){
+
+					cout << "\n\n\t\tOK !ID IS UNIQ AND PLEASE ENTER NEW ID FOR ketabdar: ";
+					cin >> a.id;
+
+					cout << "\n\n\t\t please enter ketabdar name: ";
+					cin >> a.name;
+					cout << "\n\n\t\t enter family of new ketabdar: ";
+					cin >> a.family;
+					cout << "\n\n\t\t please enter melliid of new ketabdar: ";
+					cin >> a.melliid;
+					cout << "\n\n\t\t please enter day of new ketabdar: ";
+					cin >> a.day;
+					cout << "\n\n\t\t please enter month of new ketabdar: ";
+					cin >> a.month;
+					cout << "\n\n\t\t please enter year of new ketabdar: ";
+					cin >> a.year;
+					cout << "\n\n\t\t please enter semat of new ketabdar: ";
+					cin >> a.semat;
+					cout << "\n\n\t\t please enter madrak of new ketabdar: ";
+					cin >> a.madrak;
+					
+					
+					
+					editfinal << a.id << a.getid() << " " << a.getname() << " " << a.getfamily) << " " << a.getmelliid() << " " <<
+						a.getday() << " " << a.getmonth() << " " << a.getyear() << " " << a.getsemat() << a.getmadrak() << " " <<endl;
+
+					cout << "\n\t\t\t\t*********************************************************************\n";
+					cout << "\t\t\t\t*                       your ketabdar is add                              *\n";
+					cout << "\t\t\t\t***********************************************************************\n";
+				}
+			}
+			else{
+				editfinal << b.getid() << " " << b.getname() << " " << b.getfamily) << " " << b.getmelliid() << " " <<
+						b.getday() << " " << b.getmonth() << " " << b.getyear() << " " << b.getmadrak() << " " << b.getsemat() << " " <<endl;
+			}
+
+		}if (!found){
+
+			cout << "\n\n\t\t please enter ketabdar name: ";
+					cin >> a.name;
+					cout << "\n\n\t\t enter family of new ketabdar: ";
+					cin >> a.family;
+					cout << "\n\n\t\t please enter melliid of new ketabdar: ";
+					cin >> a.melliid;
+					cout << "\n\n\t\t please enter day of new ketabdar: ";
+					cin >> a.day;
+					cout << "\n\n\t\t please enter month of new ketabdar: ";
+					cin >> a.month;
+					cout << "\n\n\t\t please enter year of new ketabdar: ";
+					cin >> a.year;
+					cout << "\n\n\t\t please enter semat of new ketabdar: ";
+					cin >> a.semat;
+					cout << "\n\n\t\t please enter madrak of new ketabdar: ";
+					cin >> a.madrak;
+					
+			
+			editfinal << a.id << a.getid() << " " << a.getname() << " " << a.getfamily) << " " << a.getmelliid() << " " <<
+						a.getday() << " " << a.getmonth() << " " << a.getyear() << " " << a.getsemat() << a.getmadrak() << " " <<endl;
+
+			cout << "\n\t\t\t\t******************************************************************************\n";
+			cout << "\t\t\t\t*                    your ketabdar is add correctly                                *\n";
+			cout << "\t\t\t\t********************************************************************************\n";
+		}
+		addketabdar.close();
+		editfinal.close();
+
+		//remove("ketabdar.txt");
+		//rename("ketabdarfinal.txt", "ketabdar.txt");
+		if (remove("ketabdar.txt") != 0){
+			cout << "error in deleting original file" << endl;
+		}
+
+		if (rename("ketabdarfinal.txt", "ketabdar.txt") != 0){
+			cout << "error in renaming output file" << endl;
+		}
+		cout << "\n\t\t\t\t do you want add other ketabdar again?(y/n) \n";
+
+		cin >> q;
+
+	} while (q != 'n');
+
+	
+
+}

@@ -1,0 +1,157 @@
+void addozv(){
+
+	char q;
+	do
+	{
+
+		system("cls");
+		ifstream addozv("ozv.txt");
+		ofstream editfinal("ozvfinal.txt");
+		if (!addozv)
+		{
+			cout << "the file could not be opened!" << endl;
+			abort();
+		}
+		ozvinf a;
+		ozvinf b;
+		bool found = false;
+
+		cout << "\n\n\t\t please enter new ozv id : ";
+		cin >> a.id;
+		while (addozv >> b.id)
+		{
+
+			addozv >> b.name;
+			addozv >> b.family;
+			addozv >> b.melliid;
+			addozv >> b.day;
+                        addozv >> b.month;
+                        addozv >> b.year;
+                        addozv >> b.noe;
+                        addozv >> b.stuid;
+                        addozv >> b.jarime;
+                        addozv >> b.pass;
+
+			if (a.id == b.id){
+				found = true;
+				
+
+				cout << "\n\t\t This ozv is available ! \n\n";
+
+				cout << "\n\t\t\t " << "name    : " << b.name;
+				cout << "\n\t\t\t " << "family : " << b.family;
+				cout << "\n\t\t\t " << "melliid  : " << b.melliid;
+				cout << "\n\t\t\t " << "day : " << b.day;
+				cout << "\n\t\t\t " << "month: " << b.month;
+				cout << "\n\t\t\t " << "year: " << b.year;
+				cout << "\n\t\t\t " << "noe: " << b.noe;
+				cout << "\n\t\t\t " << "stuid: " << b.stuid;
+				cout << "\n\t\t\t " << "jarime: " << b.jarime;
+				cout << "\n\t\t\t " << "pass: " << b.pass;
+				cout << "\n\n\t\tdo you want to add new ozv ? (y/n)\n\t\t";
+				char chp;
+				cin >> chp;
+				if (chp == 'y'){
+
+					ozv oz(a.id, b.name, b.family, b.melliid, b.day, b.month,b.year, b.noe, b.stuid, b.jarime, b.pass);
+					ozvvector.push_back(oz);
+					
+					editfinal << oz.getid() << " " << oz.getname() << " " << oz.getfamily) << " " << oz.getmelliid() << " " <<
+						oz.getday() << " " << oz.getmonth() << " " << oz.getyear() << " " << oz.getnoe() << " " <<oz.getstuid() << " " << oz.getjarime() << " " << oz.getpass() << " " <<endl;
+
+					cout << "\n\t\t\t\t*********************************************************************\n";
+					cout << "\t\t\t\t*                ok your ozv is added                                *\n";
+					cout << "\t\t\t\t***********************************************************************\n";
+
+				}
+				else if (chp == 'n'){
+
+					cout << "\n\n\t\tOK !ID IS UNIQ AND PLEASE ENTER NEW ID FOR ozv: ";
+					cin >> a.id;
+
+					cout << "\n\n\t\t please enter ozv name: ";
+					cin >> a.name;
+					cout << "\n\n\t\t enter family of new ozv: ";
+					cin >> a.family;
+					cout << "\n\n\t\t please enter melliid of new ozv: ";
+					cin >> a.melliid;
+					cout << "\n\n\t\t please enter day of new ozv: ";
+					cin >> a.day;
+					cout << "\n\n\t\t please enter month of new ozv: ";
+					cin >> a.month;
+					cout << "\n\n\t\t please enter year of new ozv: ";
+					cin >> a.year;
+					cout << "\n\n\t\t please enter noe of new ozv: ";
+					cin >> a.noe;
+					cout << "\n\n\t\t please enter stuid of new ozv: ";
+					cin >> a.stuid;
+					cout << "\n\n\t\t please enter jarimeh of new ozv: ";
+					cin >> a.jarimeh;
+					cout << "\n\n\t\t please enter pass of new ozv: ";
+					cin >> a.pass;
+					
+					editfinal << a.id << a.getid() << " " << a.getname() << " " << a.getfamily) << " " << a.getmelliid() << " " <<
+						a.getday() << " " << a.getmonth() << " " << a.getyear() << " " << a.getnoe() << " " <<a.getstuid() << " " << a.getjarime() << " " << a.getpass() << " " <<endl;
+
+					cout << "\n\t\t\t\t*********************************************************************\n";
+					cout << "\t\t\t\t*                       your ozv is add                              *\n";
+					cout << "\t\t\t\t***********************************************************************\n";
+				}
+			}
+			else{
+				editfinal << b.getid() << " " << b.getname() << " " << b.getfamily) << " " << b.getmelliid() << " " <<
+						b.getday() << " " << b.getmonth() << " " << b.getyear() << " " << b.getnoe() << " " <<b.getstuid() << " " << b.getjarime() << " " << b.getpass() << " " <<endl;
+			}
+
+		}if (!found){
+
+			cout << "\n\n\t\t please enter name new ozv: ";
+			cin >> a.onvan;
+			cout << "\n\n\t\t enter family of new ozv: ";
+                 	cin >> a.family;
+			cout << "\n\n\t\t please enter melliid of new ozv: ";
+			cin >> a.melliid;
+			cout << "\n\n\t\t please enter day of new ozv: ";
+			cin >> a.day;
+			cout << "\n\n\t\t please enter month of new ozv: ";
+			cin >> a.month;
+			cout << "\n\n\t\t please enter year of new ozv: ";
+			cin >> a.year;
+			cout << "\n\n\t\t please enter noe of new ozv: ";
+			cin >> a.noe;
+			cout << "\n\n\t\t please enter stuid of new ozv: ";
+			cin >> a.stuid;
+			cout << "\n\n\t\t please enter jarimeh of new ozv: ";
+			cin >> a.jarimeh;
+			cout << "\n\n\t\t please enter pass of new ozv: ";
+			cin >> a.pass;
+					
+			
+			editfinal << a.id << a.getid() << " " << a.getname() << " " << a.getfamily) << " " << a.getmelliid() << " " <<
+						a.getday() << " " << a.getmonth() << " " << a.getyear() << " " << a.getnoe() << " " <<a.getstuid() << " " << a.getjarime() << " " << a.getpass() << " " <<endl;
+
+			cout << "\n\t\t\t\t******************************************************************************\n";
+			cout << "\t\t\t\t*                    your ozv is add correctly                                *\n";
+			cout << "\t\t\t\t********************************************************************************\n";
+		}
+		addozv.close();
+		editfinal.close();
+
+		//remove("ozv.txt");
+		//rename("ozvfinal.txt", "ozv.txt");
+		if (remove("ozv.txt") != 0){
+			cout << "error in deleting original file" << endl;
+		}
+
+		if (rename("ozvfinal.txt", "ozv.txt") != 0){
+			cout << "error in renaming output file" << endl;
+		}
+		cout << "\n\t\t\t\t do you want add other ozv again?(y/n) \n";
+
+		cin >> q;
+
+	} while (q != 'n');
+
+	
+
+}
